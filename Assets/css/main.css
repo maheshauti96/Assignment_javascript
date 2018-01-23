@@ -1,0 +1,40 @@
+body{
+    background-color:#99d6ff;
+}
+ul{
+    list-style-type: none;
+}
+header{
+    height:60px;
+    background-color: #00264d;
+}
+header .container{
+   text-align:center;
+    padding-right:40px;
+}
+header .container button{
+    margin-top:20px;
+    float: right;
+    margin-left:20px;
+}
+#logo{
+    height: 60px;
+    width:200px;
+}
+#main-container{
+    width:300px;
+    height: auto;
+    margin:0 auto;
+    border-style:dotted;
+    border-color:black;
+    border-width:2px;
+   margin-top:100px;
+   margin-bottom:100px;
+}
+#main-container *{
+    margin:10px;
+}
+input{
+    width:200px;
+    margin-bottom:20px;
+}

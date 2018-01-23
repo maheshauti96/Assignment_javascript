@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./Assets/css/normalize.css">
+    <link rel="stylesheet" href="./Assets/css/reset.css">
+    <link rel="stylesheet" href="./Assets/css/main.css">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <img id="logo" src="./Assets/images/image_1207_todo_01.png" alt="">
+        <button id="loginbutton">LOGIN </button>
+        <!-- <button id="signupbutton">REGISTER </button> -->
+        <script src="./Assets/js/home.js"></script>
+      </div>
+    </header>
+    <main>
+      <div id="main-container">
+        <form class="myform" action="" onsubmit=" return registeruser()">
+             <label for="Email" id="emaillable">Email </label>  <br>
+             <input type="text" name="email" id="emailAddr" onfocusout="validateemail(this)" required > <span> </span>
+              <label for="firstName">FirstName </label>  
+             <input type="text" name="firstName" id="fname" required pattern="([a-z]*|[A-Z]*)*"  required>    
+               <label for="LastName">LastName </label> 
+              <input type="text" name="LastName" id="lname"required pattern="([a-z]*|[A-Z]*)*" required>  <br>    
+                 <label for="Gender">Gender </label>  
+              <select name="Gender" :required>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>    
+              <br> <label for="Address" >Address </label> 
+              <textarea rows="4" cols="20" name="Address" required> </textarea>    
+
+                 <label for="ProfileImage">ProfileImage </label>   
+                 <input name="proImage" type="file" accept="image/*"  value=profilepic required>
+                 <input type="Password" placeholder="Password" required pattern="[A-Z]*+[a-z]*+[0-9]"required >
+                 <input type="Password" placeholder="Password" required pattern="[A-Z]*+[a-z]*+[0-9]" required>
+                 <input id="submit" type="submit" value="REGISTER">
+               
+               
+            </ul>
+        </form>
+      </div>
+
+    </main>
+
+    </div>
+  </body>
+
+</html>
