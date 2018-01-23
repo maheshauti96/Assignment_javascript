@@ -13,6 +13,7 @@ function Person(first, last, age, eye) {
 //     last=document.getElementById("lname").value;
 //   email=document.getElementById("emailAddr").value; 
 //     if(validateemail(email))
+        window.alert("bclicked");
     return true;  // else
     // return false;
   
@@ -25,10 +26,31 @@ function Person(first, last, age, eye) {
 function validateemail(email){
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))
   {
+    email.style.color="green";
     return (true)
   }
   document.getElementById("emaillable").innerHTML="please enter valid email"; 
-  document.getElementById("emaillable").style.color="red";
-  document.getElementById("emailAddr").focus(); 
+  email.style.color="red";
     return (false)
+}
+function validatefname(name){
+    if(/^[a-zA-Z ]{2,30}$/.test(name.value))
+    {
+        name.style.color="green";
+    return (true)
+    }
+    document.getElementById("firstname").innerHTML="invalid name"; 
+    name.style.color="red";
+      return (false)
+}
+
+function validatelname(name){
+    if(/^[a-zA-Z ]{2,30}$/.test(name.value))
+    {
+        name.style.color="green";
+    return (true)
+    }
+    document.getElementById("lastname").innerHTML="invalid name"; 
+    name.style.backgroundColor="red";
+      return (false)
 }
