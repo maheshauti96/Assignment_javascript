@@ -11,6 +11,7 @@ var username;
     window.alert("user "+newdata.Fname+" "+newdata.Lname+" registered successfully");
     username=newdata.Email;
     localStorage.setItem(newdata.Email, JSON.stringify(newdata));
+    localStorage.setItem('username',username);
     window.location = "./homepage.html";
     return true;
   }
@@ -43,5 +44,34 @@ var username;
        return new1;
    }
    function loadprofile(){
-       window.alert("user is "+username);
+       username=localStorage.getItem('username');
+       
+       var obj = JSON.parse(localStorage.getItem(username));
+       document.getElementById("PR_EMAIL").value=obj.Email;
+       document.getElementById("PR_FN").value=obj.Fname;
+       document.getElementById("PR_LN").value=obj.Lname;
+       document.getElementById("PR_GENDER").value=obj.gender;
+       document.getElementById("PR_ADDRESS").value=obj.Address;
+       document.getElementById("PR_IMAGE").value=obj.imgurl;
+      
+     
+       
+       
+       
+   }
+   function makeeditable(){
+    document.getElementById("PR_EMAIL").readOnly=false;
+    document.getElementById("PR_FN").readOnly=false;
+    document.getElementById("PR_LN").readOnly=false;
+    document.getElementById("PR_GENDER").readOnly=false;
+    document.getElementById("PR_ADDRESS").readOnly=false;
+    document.getElementById("PR_IMAGE").readOnly=false;
+    
+
+    var para = document.createElement("input");
+    para.setAttribute("type", "file");
+    para.setAttribute("style", "display: block;");
+    var element = document.getElementById("PR_IMAGE");
+    element.appendChild(para);
+    
    }

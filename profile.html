@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./Assets/css/normalize.css">
     <link rel="stylesheet" href="./Assets/css/reset.css">
     <link rel="stylesheet" href="./Assets/css/main.css">
+    <link rel="stylesheet" href="./Assets/css/profile.css">
     <title>Welcome</title>
     <script src="./Assets/js/home.js"></script>
   </head>
@@ -17,12 +18,22 @@
       <div class="container">
         <img id="logo" src="./Assets/images/image_1207_todo_01.png" alt="">
         <button id="Home" onclick="  window.location = './homepage.html';"> Home </button> 
-       
-       
       </div>
     </header>
+ 
     <main>
-   
+        <div class="profile-container">
+                <p>My Profile</p>
+               <label for="PR_EMAIL">Email</label> <input type="text" id="PR_EMAIL" readonly>
+               <label for="PR_FN">Fast Name</label> <input type="text" name="" id="PR_FN" readonly>
+               <label for="PR_LN">Last Name</label> <input type="text" name="" id="PR_LN" readonly>
+               <label for="PR_GENDER">Gender</label> <input type="text" name="" id="PR_GENDER" readonly>
+               <label for="PR_ADDRESS">Address</label> <input type="text" name="" id="PR_ADDRESS" readonly>
+               <label for="PR_IMAGE">Image path</label> <input type="text" name="" id="PR_IMAGE" readonly> 
+              
+              <button id="editprofile" onclick="makeeditable()">Edit</button>
+             
+        </div>
 
     </main>
 

@@ -1,0 +1,14 @@
+main .profile-container{
+    width:500px;
+    margin:0 auto;    
+    margin-top:60px;
+}
+p{
+    font-size:40px;
+    text-align:center;
+    margin:30px;
+}
+main div label{
+    width: 150px;
+    display:inline-block;
+}
