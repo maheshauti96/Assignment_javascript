@@ -18,14 +18,14 @@
       <div class="container">
         <img id="logo" src="./Assets/images/image_1207_todo_01.png" alt="">
         <button id="loginbutton">LOGIN </button>
-        <!-- <button id="signupbutton">REGISTER </button> -->
+        
       
       </div>
     </header>
     <main>
       <div id="main-container">
           <h2>New to To-Do? Register Here</h2>
-        <form class="myform" action="" onsubmit="return registeruser()" >
+        <form class="myform" action=""  >
           
              <label for="Email" id="emaillable">Email </label>  <br>
              <input  type="text" name="email" id="emailAddr" onfocusout="validateemail(this)" required > <span> </span>
@@ -46,7 +46,7 @@
                  <input type="Password" id="pwd1" placeholder="Password" required >
                  <input type="Password" id="pwd2" placeholder="Password"  onfocusout="validatepassword()"  required>
                 <h5 id="msg" style="color:red"></h5>
-                 <input id="submit" type="submit" value="REGISTER"  >
+                 <input id="submit" type="submit" onclick="registeruser(event)" value="REGISTER"  >
                  
                
             </ul>

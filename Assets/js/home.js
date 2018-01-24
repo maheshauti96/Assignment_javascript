@@ -1,11 +1,15 @@
 
- function registeruser(){
-    
+ function registeruser(event){
+    event.preventDefault();
   if(validate())
   {
     // window.alert(" successfully validated");
     var newdata=getdata();
-    window.alert("user "+newdata.Fname+newdata.Lname+"registered successfully");
+    window.alert("user "+newdata.Fname+" "+newdata.Lname+" registered successfully");
+   
+    localStorage.setItem(newdata.Email, JSON.stringify(newdata));
+    window.location = "./homepage.html";
+
       return true;
   }
   else
