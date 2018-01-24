@@ -10,8 +10,9 @@ header{
     background-color: #00264d;
 }
 header .container{
+    position: relative;
    text-align:center;
-    padding-right:40px;
+    margin-right:40px;
 }
 header .container button{
     margin-top:10px;
@@ -23,8 +24,10 @@ header .container button{
     border-radius:10px;
 }
 #logo{
+    position: absolute;
     height: 60px;
     width:200px;
+    
 }
 #main-container{
     width:400px;

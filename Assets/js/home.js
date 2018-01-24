@@ -1,4 +1,7 @@
 
+var username;
+//  local variables
+
  function registeruser(event){
     event.preventDefault();
   if(validate())
@@ -6,15 +9,14 @@
     // window.alert(" successfully validated");
     var newdata=getdata();
     window.alert("user "+newdata.Fname+" "+newdata.Lname+" registered successfully");
-   
+    username=newdata.Email;
     localStorage.setItem(newdata.Email, JSON.stringify(newdata));
     window.location = "./homepage.html";
-
-      return true;
+    return true;
   }
   else
   {
-    window.alert("form is not valid");
+    window.alert("form is incomplete");
   return false;
   }
  }
@@ -39,5 +41,7 @@
        var gender=document.getElementById("gender").value;
         var new1=new user(Fname,Lname,Email,Address,imgurl,pwd,gender);
        return new1;
-       
+   }
+   function loadprofile(){
+       window.alert("user is "+username);
    }
