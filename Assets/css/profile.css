@@ -12,3 +12,13 @@ main div label{
     width: 150px;
     display:inline-block;
 }
+button{
+    margin-top:10px;
+    float: left;
+    margin-left:20px;
+   background-color:#00264d;
+   color:white;
+    height: 40px;
+    width:auto;
+    border-radius:10px;
+}

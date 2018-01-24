@@ -26,12 +26,11 @@
       <div id="main-container">
           <h2>New to To-Do? Register Here</h2>
         <form class="myform" action=""  >
-          
              <label for="Email" id="emaillable">Email </label>  <br>
              <input  type="text" name="email" id="emailAddr" onfocusout="validateemail(this)" required > <span> </span>
               <label for="firstName" id="firstname">FirstName </label>  
              <input type="text" name="firstName" id="fname"  onfocusout="validatefname(this)"  required>    
-               <label for="LastName" id="lastname">LastName </label> 
+               <label for="LastName" id="lastname">LastName </label>
               <input type="text" name="LastName" id="lname"  onfocusout="validatelname(this)"required>  <br>    
                  <label for="Gender">Gender </label>  
               <select name="Gender" id="gender" :required>
@@ -42,7 +41,7 @@
               <textarea rows="4" cols="20" name="Address" id="address" required> </textarea>    
 
                  <label for="ProfileImage" style="display:block">ProfileImage </label>   
-                 <input name="profileimg" type="file" id="img" accept="image/*"  value=profilepic required>
+                 <input name="profileimg" type="file" id="img" acceptthis="image/*"  value=profilepic required>
                  <input type="Password" id="pwd1" placeholder="Password" required >
                  <input type="Password" id="pwd2" placeholder="Password"  onfocusout="validatepassword()"  required>
                 <h5 id="msg" style="color:red"></h5>

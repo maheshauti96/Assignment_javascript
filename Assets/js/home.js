@@ -43,10 +43,11 @@ var username;
         var new1=new user(Fname,Lname,Email,Address,imgurl,pwd,gender);
        return new1;
    }
+   var obj;
    function loadprofile(){
        username=localStorage.getItem('username');
        
-       var obj = JSON.parse(localStorage.getItem(username));
+       obj = JSON.parse(localStorage.getItem(username));
        document.getElementById("PR_EMAIL").value=obj.Email;
        document.getElementById("PR_FN").value=obj.Fname;
        document.getElementById("PR_LN").value=obj.Lname;
@@ -66,12 +67,23 @@ var username;
     document.getElementById("PR_GENDER").readOnly=false;
     document.getElementById("PR_ADDRESS").readOnly=false;
     document.getElementById("PR_IMAGE").readOnly=false;
-    
+    // document.getElementById("choose").style.display=inline-block;
 
     var para = document.createElement("input");
     para.setAttribute("type", "file");
     para.setAttribute("style", "display: block;");
-    var element = document.getElementById("PR_IMAGE");
+    para.setAttribute("style", "z-index: 1000;");
+    var element = document.getElementById("choose");
     element.appendChild(para);
-    
+   }
+
+   function updateinfo(){
+       obj.Fname= document.getElementById("PR_FN").value;
+       obj.Lname=document.getElementById("PR_LN").value;
+       obj.gender= document.getElementById("PR_GENDER").value;
+       obj.Address=  document.getElementById("PR_ADDRESS").value;
+       obj.imgurl= document.getElementById("PR_IMAGE").value;
+       localStorage.setItem(username, JSON.stringify(obj));
+       
+
    }
