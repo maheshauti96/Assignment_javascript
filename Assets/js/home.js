@@ -1,56 +1,39 @@
-function Person(first, last, age, eye) {
-    this.firstName = first;
-    this.lastName = last;
-    this.age = age;
-    this.eyeColor = eye;
-}
-
-// document.getElementById("submit").addEventListener("click", registeruser); 
 
  function registeruser(){
-//     var first,last,email,gender, address,image;
-//     first=document.getElementById("fname").value;
-//     last=document.getElementById("lname").value;
-//   email=document.getElementById("emailAddr").value; 
-//     if(validateemail(email))
-        window.alert("bclicked");
-    return true;  // else
-    // return false;
-  
-   
-//     gender=document.getElementById("name").value;
-//     address=document.getElementById("name").value;
-//     return true;
+    
+  if(validate())
+  {
+    // window.alert(" successfully validated");
+    var newdata=getdata();
+    window.alert("user "+newdata.Fname+newdata.Lname+"registered successfully");
+      return true;
+  }
+  else
+  {
+    window.alert("form is not valid");
+  return false;
+  }
  }
 
-function validateemail(email){
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))
-  {
-    email.style.color="green";
-    return (true)
-  }
-  document.getElementById("emaillable").innerHTML="please enter valid email"; 
-  email.style.color="red";
-    return (false)
-}
-function validatefname(name){
-    if(/^[a-zA-Z ]{2,30}$/.test(name.value))
-    {
-        name.style.color="green";
-    return (true)
-    }
-    document.getElementById("firstname").innerHTML="invalid name"; 
-    name.style.color="red";
-      return (false)
+ function user(Fname,Lname,Email,Address,imgurl,pwd,gender) {
+    this.Fname = Fname;
+    this.Lname = Lname;
+    this.Email = Email;
+    this.Address = Address;
+    this.imgurl = imgurl;
+    this.pwd = pwd;
+    this.gender = gender;
 }
 
-function validatelname(name){
-    if(/^[a-zA-Z ]{2,30}$/.test(name.value))
-    {
-        name.style.color="green";
-    return (true)
-    }
-    document.getElementById("lastname").innerHTML="invalid name"; 
-    name.style.backgroundColor="red";
-      return (false)
-}
+   function getdata(){
+       var Fname=document.getElementById("fname").value;
+       var Lname=document.getElementById("lname").value;
+       var Email=document.getElementById("emailAddr").value;
+       var Address=document.getElementById("address").value;
+       var imgurl=document.getElementById("img").value;
+       var pwd=document.getElementById("pwd1").value;
+       var gender=document.getElementById("gender").value;
+        var new1=new user(Fname,Lname,Email,Address,imgurl,pwd,gender);
+       return new1;
+       
+   }

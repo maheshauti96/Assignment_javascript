@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="./Assets/css/normalize.css">
     <link rel="stylesheet" href="./Assets/css/reset.css">
     <link rel="stylesheet" href="./Assets/css/main.css">
-    <title>Document</title>
+    <title>todo</title>
+    <script src="./Assets/js/home.js"></script>
+    <script src="./Assets/js/validations.js"></script>
   </head>
 
   <body>
@@ -17,12 +19,14 @@
         <img id="logo" src="./Assets/images/image_1207_todo_01.png" alt="">
         <button id="loginbutton">LOGIN </button>
         <!-- <button id="signupbutton">REGISTER </button> -->
-        <script src="./Assets/js/home.js"></script>
+      
       </div>
     </header>
     <main>
       <div id="main-container">
-        <form class="myform" action="" onsubmit=" return registeruser()">
+          <h2>New to To-Do? Register Here</h2>
+        <form class="myform" action="" onsubmit="return registeruser()" >
+          
              <label for="Email" id="emaillable">Email </label>  <br>
              <input  type="text" name="email" id="emailAddr" onfocusout="validateemail(this)" required > <span> </span>
               <label for="firstName" id="firstname">FirstName </label>  
@@ -30,19 +34,20 @@
                <label for="LastName" id="lastname">LastName </label> 
               <input type="text" name="LastName" id="lname"  onfocusout="validatelname(this)"required>  <br>    
                  <label for="Gender">Gender </label>  
-              <select name="Gender" :required>
+              <select name="Gender" id="gender" :required>
               <option value="M">Male</option>
               <option value="F">Female</option>
             </select>    
-              <br> <label for="Address" >Address </label> 
-              <textarea rows="4" cols="20" name="Address" required> </textarea>    
+              <br> <label for="Address" style="display:block" >Address </label> 
+              <textarea rows="4" cols="20" name="Address" id="address" required> </textarea>    
 
-                 <label for="ProfileImage">ProfileImage </label>   
-                 <input name="proImage" type="file" accept="image/*"  value=profilepic required>
-                 <input type="Password" placeholder="Password" required pattern="[A-Z]*+[a-z]*+[0-9]"required >
-                 <input type="Password" placeholder="Password" required pattern="[A-Z]*+[a-z]*+[0-9]" required>
-                 <input id="submit" type="submit" value="REGISTER">
-               
+                 <label for="ProfileImage" style="display:block">ProfileImage </label>   
+                 <input name="profileimg" type="file" id="img" accept="image/*"  value=profilepic required>
+                 <input type="Password" id="pwd1" placeholder="Password" required >
+                 <input type="Password" id="pwd2" placeholder="Password"  onfocusout="validatepassword()"  required>
+                <h5 id="msg" style="color:red"></h5>
+                 <input id="submit" type="submit" value="REGISTER"  >
+                 
                
             </ul>
         </form>
