@@ -49,6 +49,7 @@
        obj.imgurl= document.getElementById("PR_IMAGE").value;
       // var allEntries = JSON.parse(localStorage.getItem('allEntries'));
      // allEntries.push(obj);
+
      localStorage.setItem("allEntries", JSON.stringify(allEntries));
        window.alert("profile updated successfully");
 

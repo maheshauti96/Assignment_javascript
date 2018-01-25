@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./Assets/css/normalize.css">
+    <link rel="stylesheet" href="./Assets/css/reset.css">
+    <link rel="stylesheet" href="./Assets/css/main.css">
+    <link rel="stylesheet" href="./Assets/css/home.css">
+    <title>Welcome</title>
+    <script src="./javascript/homepage.js"> </script>
+  </head>
+
+  <body onload="loadhomepage()">
+     
+    <header>
+      <div class="container">
+        <img id="logo" src="./Assets/images/image_1207_todo_01.png" alt="">
+        <button id="viewpro" onclick="  window.location = './Index.html';"> Logout</button> 
+        <button id="viewpro" onclick="  window.location = './profile.html';"> view profile </button> 
+    
+       
+      </div>
+    </header>
+    <main>
+      <div class="container">
+            <p id="username" style="display:none"></p>
+          <div id="newItemForm">
+        <label for="title">Title:</label> <input type="text" id=todoTitle> <br>
+        <label for="Category">Select Categories</label>  <input name="Category" type="radio" value="office"> Office <input type="radio"  name="Category" value="home"> Home <input type="radio"  name="Category" value="personal"> Personal <br>
+        <label for="date">Due Date: </label> <input type="date" id="Due_date"> <br>
+        <label for="reminder">Do you want to set reminder?</label> <input id="reminder" type="checkbox"> <br>
+       <label for="public?">visibility</label> <input type="radio" name="visibility" value="Public"> Public <input type="radio" name="visibility" value="Private"> Private <br>
+       <input type="button" id="submit" value="Save" onclick="saveitem()">
+    </div>
+    </div>
+    </main>
+
+    </div>
+  </body>
+
+</html>

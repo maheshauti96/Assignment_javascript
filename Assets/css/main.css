@@ -46,7 +46,7 @@ header .container button{
 #main-container *{
     margin:10px;
 }
-input{
+#main-container input{
     width:300px;
     height: 30px;;
     margin-bottom:20px;

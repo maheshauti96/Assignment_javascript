@@ -10,9 +10,13 @@ var username;
     var newdata=getdata();
     window.alert("user "+newdata.Fname+" "+newdata.Lname+" registered successfully");
     username=newdata.Email;
-    localStorage.setItem(newdata.Email, JSON.stringify(newdata));
+  
     localStorage.setItem('username',username);
+    
     var allEntries = JSON.parse(localStorage.getItem('allEntries'));
+    if(allEntries==undefined)
+    allEntries=new Array();
+    
     allEntries.push(newdata);
     localStorage.setItem("allEntries", JSON.stringify(allEntries));
     window.location = "./homepage.html";
