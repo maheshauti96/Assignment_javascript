@@ -17,24 +17,39 @@ for(i=0;i<todolist.length;i++)
     var reminderdate=arr.reminderdate;
     var visibility=arr.visibility;
 
-    var oldrow=document.getElementById("customers");
+    var oldrow=document.getElementById("customers");//parent
     var node = document.createElement("tr");
     node.setAttribute("id", i);
     oldrow.appendChild(node);
-    document.getElementById(i).innerHTML=" <td>"+title+"</td>"+
+    document.getElementById(i).innerHTML=" <td>"+(i+1)+". <input type='checkbox' style='height:20px;width:20px' onchange=makestrikethrough("+i+")> "+"</td>"+
+                                                "<td>"+title+"</td>"+
                                               "<td>"+category+"</td>"+
                                               "<td>"+duedate+"</td>"+
                                               "<td>"+reminder+"</td>"+
                                               "<td>"+reminderdate+"</td>"+
                                               "<td>"+visibility+"</td>";
     
-   
-
 }
 
 }
 function additem(){
     window.location="./newItem.html";
+}
+var flag=true;
+function makestrikethrough( i){
+    if(flag==true)
+    {
+    document.getElementById(i).style.textDecoration = "line-through";
+    flag=false;
+        return;
+    }
+    if(flag==false)
+    {
+        document.getElementById(i).style.textDecoration = "none";
+        flag=true;
+            return;
+    }
+    
 }
 function saveitem(){
     var title=document.getElementById("todoTitle").value;
