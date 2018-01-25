@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./Assets/css/reset.css">
     <link rel="stylesheet" href="./Assets/css/main.css">
     <title>Loginpage</title>
-    <script src="./Assets/js/home.js"></script>
+    <script src="./javascript/application.js"></script>
+    <script src="./javascript/login.js"></script>
   </head>
 
   <body>
@@ -24,11 +25,11 @@
     <main>
       <div id="main-container">
         <form  action="">
-             <label for="Email">Email </label>  <br>
-             <input type="Email" name="" id="">
+             <label for="Email" id="emaillable">Email </label>  <br>
+             <input  type="text" name="email" id="emailAddr" onfocusout="validateusername(this)" required > <span>
              <label for="password">Password</label>
-             <input type="Password" name="" id="">
-            <input type="submit">
+             <input type="Password" name="" id="pwd">
+            <input type="submit" id="submit" onclick="login(event);">
         </form>
       </div>
       <div>
