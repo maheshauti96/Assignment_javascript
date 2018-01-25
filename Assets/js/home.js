@@ -12,6 +12,9 @@ var username;
     username=newdata.Email;
     localStorage.setItem(newdata.Email, JSON.stringify(newdata));
     localStorage.setItem('username',username);
+    var allEntries = JSON.parse(localStorage.getItem('allEntries'));
+    allEntries.push(newdata);
+    localStorage.setItem("allEntries", JSON.stringify(allEntries));
     window.location = "./homepage.html";
     return true;
   }
@@ -46,19 +49,26 @@ var username;
    var obj;
    function loadprofile(){
        username=localStorage.getItem('username');
-       
-       obj = JSON.parse(localStorage.getItem(username));
+       var allEntries = JSON.parse(localStorage.getItem('allEntries'));
+       var x = search(username, allEntries);
+       obj= allEntries[x];
+       allEntries.splice(x, 1);
+       localStorage.setItem("allEntries", JSON.stringify(allEntries));
        document.getElementById("PR_EMAIL").value=obj.Email;
        document.getElementById("PR_FN").value=obj.Fname;
        document.getElementById("PR_LN").value=obj.Lname;
        document.getElementById("PR_GENDER").value=obj.gender;
        document.getElementById("PR_ADDRESS").value=obj.Address;
        document.getElementById("PR_IMAGE").value=obj.imgurl;
-      
-     
-       
-       
-       
+   }
+   function search(username,allEntries){
+    for (x=0; x<allEntries.length; x++){
+        if(username==allEntries[x].Email)
+
+            return x;
+            
+       }
+
    }
    function makeeditable(){
     document.getElementById("PR_EMAIL").readOnly=false;
@@ -83,7 +93,9 @@ var username;
        obj.gender= document.getElementById("PR_GENDER").value;
        obj.Address=  document.getElementById("PR_ADDRESS").value;
        obj.imgurl= document.getElementById("PR_IMAGE").value;
-       localStorage.setItem(username, JSON.stringify(obj));
+       var allEntries = JSON.parse(localStorage.getItem('allEntries'));
+      allEntries.push(obj);
+     localStorage.setItem("allEntries", JSON.stringify(allEntries));
        
 
    }
