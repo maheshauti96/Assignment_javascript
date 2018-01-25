@@ -41,7 +41,7 @@ function saveitem(){
     var duedate=document.getElementById("Due_date").value;
     var category=document.querySelector('input[name = "Category"]:checked').value;
     var reminder=document.getElementById("reminder").checked;
-    var reminderdate=null;
+    var reminderdate=document.getElementById("Rdate").value;
     var visibility=document.querySelector('input[name = "visibility"]:checked').value;
     var item=new getitem(title,duedate,category,reminder,reminderdate,visibility);
     localStorage.getItem('username');
@@ -60,7 +60,7 @@ this.title=title;
 this.duedate=duedate;
 this.category=category;
 this.reminder=reminder;
-this.reminderdate;
+this.reminderdate=reminderdate;
 this.visibility=visibility;
 }
 function search(username,allEntries){
@@ -70,3 +70,6 @@ function search(username,allEntries){
        }
    }
 
+function addreminder(){
+    document.getElementById("time").style.display="block";
+}
