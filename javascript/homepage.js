@@ -20,7 +20,11 @@ for(i=0;i<todolist.length;i++)
     var oldrow=document.getElementById("customers");//parent
     var node = document.createElement("tr");
     node.setAttribute("id", i);
+    node.setAttribute("style", "text-decoration: none;");
     oldrow.appendChild(node);
+    // //
+    //  var rowstyle=document.getElementById(i).style.textDecoration;
+    //   window.alert(document.getElementById(i).style.textDecoration);
     document.getElementById(i).innerHTML=" <td>"+(i+1)+". <input type='checkbox' style='height:20px;width:20px' onchange=makestrikethrough("+i+")> "+"</td>"+
                                                 "<td>"+title+"</td>"+
                                               "<td>"+category+"</td>"+
@@ -37,19 +41,12 @@ function additem(){
 }
 var flag=true;
 function makestrikethrough( i){
-    if(flag==true)
-    {
+   
+    if(document.getElementById(i).style.textDecoration=="none")
     document.getElementById(i).style.textDecoration = "line-through";
-    flag=false;
-        return;
-    }
-    if(flag==false)
-    {
-        document.getElementById(i).style.textDecoration = "none";
-        flag=true;
-            return;
-    }
-    
+    else
+    document.getElementById(i).style.textDecoration = "none";
+  
 }
 function saveitem(){
     var title=document.getElementById("todoTitle").value;
@@ -88,3 +85,23 @@ function search(username,allEntries){
 function addreminder(){
     document.getElementById("time").style.display="block";
 }
+
+    function Deleteitems(){
+
+        username=localStorage.getItem('username');
+        var allEntries = JSON.parse(localStorage.getItem('allEntries'));
+         var x=search(username,allEntries);
+         var todolist=allEntries[x].todo;
+         for(i=0;i<todolist.length;i++)
+         {
+            var arr=JSON.parse(todolist[i]);
+            if(document.getElementById(i).style.textDecoration=="line-through")
+            {
+                todolist.splice(i, 1);
+            }
+         }
+         localStorage.setItem("allEntries", JSON.stringify(allEntries));
+         location.reload();
+
+
+    }
