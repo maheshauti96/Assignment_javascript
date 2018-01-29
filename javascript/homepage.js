@@ -35,6 +35,17 @@ for(i=0;i<todolist.length;i++)
                                               "<td>"+"<button id='changestatus"+i+"' onclick='changestatus("+i+")'>"+status+"</button>"+"</td>";
     
 }
+  if(todolist.length==0){
+     var oldrow=document.getElementById("customers");//parent
+    var node = document.createElement("div");
+    node.setAttribute("id", "-1");
+    node.setAttribute("style", "text-decoration: none;");
+     node.setAttribute("style", "colspan: 8;");
+    node.setAttribute("style", "text-align: center;");
+    oldrow.appendChild(node);
+     document.getElementById("-1").innerHTML="no contents to show";
+  }
+
 
 }
 function additem(){
