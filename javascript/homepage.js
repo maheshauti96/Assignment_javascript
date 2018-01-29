@@ -25,7 +25,7 @@ for(i=0;i<todolist.length;i++)
     // 
     //  var rowstyle=document.getElementById(i).style.textDecoration;
     //   window.alert(document.getElementById(i).style.textDecoration);
-    document.getElementById(i).innerHTML=" <td>"+(i+1)+". <input type='checkbox' style='height:20px;width:20px' onchange=makestrikethrough("+i+")> "+"</td>"+
+    document.getElementById(i).innerHTML=" <td>"+(i+1)+". <input type='checkbox' id=check"+i+" style='height:20px;width:20px' onchange=makestrikethrough("+i+")> "+"</td>"+
                                                 "<td>"+title+"</td>"+
                                               "<td>"+category+"</td>"+
                                               "<td>"+duedate+"</td>"+
@@ -89,9 +89,10 @@ function addreminder(){
          for(i=0;i<todolist.length;i++)
          {
             var arr=todolist[i];
-            if(document.getElementById(i).style.textDecoration=="line-through")
+            if(document.getElementById("check"+i).checked == true)
             {
                 todolist.splice(i, 1);
+                window.alert("item "+i+" deleted");
             }
          }
          localStorage.setItem("allEntries", JSON.stringify(allEntries));
@@ -99,6 +100,7 @@ function addreminder(){
 
 
     }
+
     function changestatus(i){
      
         username=localStorage.getItem('username');
@@ -108,7 +110,7 @@ function addreminder(){
          
             var arr=todolist[i];
             arr.status="Done";
-
+           document.getElementById("changestatus"+i).innerHTML="Done";
             
         localStorage.setItem("allEntries", JSON.stringify(allEntries));
 
