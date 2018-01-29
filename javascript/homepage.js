@@ -92,7 +92,9 @@ function addreminder(){
             if(document.getElementById("check"+i).checked == true)
             {
                 todolist.splice(i, 1);
-                window.alert("item "+i+" deleted");
+                i=-1;
+               
+                // window.alert("item "+i+" deleted");
             }
          }
          localStorage.setItem("allEntries", JSON.stringify(allEntries));
