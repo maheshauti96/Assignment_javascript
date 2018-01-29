@@ -17,7 +17,7 @@ function login(event){
     var emailaddr=document.getElementById("emailAddr").value;
     var pwd=document.getElementById("pwd").value;
     var allEntries = JSON.parse(localStorage.getItem('allEntries'));
-    var x = search(emailaddr, allEntries);
+    var x = search(emailaddr, pwd,allEntries);
     if(x!=null){
         window.alert("welcome");
         localStorage.setItem('username',emailaddr);
@@ -25,11 +25,11 @@ function login(event){
 
     }
     else
-    window.alert("please register first");
+    window.alert("invalid username and password");
 }
-function search(username,allEntries){
+function search(username,pwd,allEntries){
     for (x=0; x<allEntries.length; x++){
-        if(username==allEntries[x].Email)
+        if((username==allEntries[x].Email)&&(pwd==allEntries[x].pwd))
             return x;    
        }
        return null;
