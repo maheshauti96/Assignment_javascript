@@ -28,7 +28,8 @@ table{
 #customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
 }
 
 #customers td, #customers th {
@@ -46,4 +47,18 @@ table{
     text-align: left;
     background-color: #00264d;
     color: white;
+    width: auto;
+}
+button{
+    /* margin-top:10px;
+    float: left;*/
+    margin-left:20px; 
+    border-radius:10px;
+    color:white;
+   background-color:#00264d;
+    height: auto;
+    width:auto;
+}
+#buttons{
+    margin-left: 5%;
 }
