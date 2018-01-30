@@ -30,6 +30,7 @@ table{
     border-collapse: collapse;
     width: 90%;
     margin: 0 auto;
+    text-align: left;
 }
 
 #customers td, #customers th {
@@ -66,4 +67,7 @@ button{
     padding-bottom: 60px;
      border: 2px dashed #046ca3;
    border-radius:10px;
+}
+.statusbtn{
+    background-color: #3495ef;
 }

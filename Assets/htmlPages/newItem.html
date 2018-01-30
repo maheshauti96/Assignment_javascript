@@ -18,7 +18,7 @@
      
     <header>
       <div class="container">
-        <img id="logo" src="./Assets/images/image_1207_todo_01.png" alt="">
+        <img id="logo" src="../images/image_1207_todo_01.png" alt="">
         <button id="viewpro" onclick="  window.location = './Index.html';"> Logout</button> 
         <button id="viewpro" onclick="  window.location = './profile.html';"> view profile </button> 
     
@@ -32,7 +32,8 @@
         <label for="title">Title:</label> <input type="text" id=todoTitle> <br>
         <label for="Category">Select Categories</label>  <input name="Category" type="radio" value="office"> Office <input type="radio"  name="Category" value="home"> Home <input type="radio"  name="Category" value="personal"> Personal <br>
         <label for="date">Due Date: </label> <input type="date" id="Due_date"> <br>
-        <label for="reminder">Do you want to set reminder?</label> <input id="reminder" type="checkbox" onchange="addreminder()"> <br> <div id="time" style="display:none"> <input type="date" name="" id="Rdate"> </div>
+        <label for="reminder">Do you want to set reminder?</label> <input id="reminder" type="checkbox" onchange="addreminder()"> <br> 
+        <div id="time" style="display:none"> <input type="date" name="" id="Rdate"> </div>
        <label for="public?">visibility</label> <input type="radio" name="visibility" value="Public"> Public <input type="radio" name="visibility" value="Private"> Private <br>
        <input type="button" id="submit" value="Save" onclick="saveitem()">
     </div>
