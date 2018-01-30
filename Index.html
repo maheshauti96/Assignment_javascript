@@ -28,11 +28,12 @@
           <h2>New to To-Do? Register Here</h2>
         <form class="myform" action=""  >
              <label for="Email" id="emaillable">Email </label>  <br>
-             <input  type="text" name="email" id="emailAddr" onfocusout="validateemail(this)" required > <span> </span>
+             <input  type="text" name="email" class="required-field" id="emailAddr" onfocusout="validateemail(this)" 
+             class="required-field" required > <span> </span>
               <label for="firstName" id="firstname">FirstName </label>  
-             <input type="text" name="firstName" id="fname"  onfocusout="validatefname(this)"  required>    
+             <input type="text" class="required-field" name="firstName" id="fname"  onfocusout="validatefname(this)"  required>    
                <label for="LastName" id="lastname">LastName </label>
-              <input type="text" name="LastName" id="lname"  onfocusout="validatelname(this)"required>  <br>    
+              <input type="text" class="required-field" name="LastName" id="lname"  onfocusout="validatelname(this)"required>  <br>    
                  <label for="Gender">Gender </label>  
               <select name="Gender" id="gender" :required>
               <option value="M">Male</option>

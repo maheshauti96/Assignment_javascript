@@ -61,3 +61,10 @@ header .container button{
     height: 40px;
     width:120px;
 }
+
+label::after { 
+    content: "*";
+    position: absolute;
+    color: red;
+    z-index: 10000;
+}
