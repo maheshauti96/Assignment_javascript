@@ -9,15 +9,16 @@
     <link rel="stylesheet" href="./Assets/css/reset.css">
     <link rel="stylesheet" href="./Assets/css/main.css">
     <title>todo</title>
-    <script src="./javascript/index.js"></script>
-    <script src="./javascript/application.js"></script>
+    <script src="./javascript/registrationModule.js"></script>
+    <script src="./javascript/ValidationModule.js"></script>
+    <script src="./javascript/storageModule.js"></script>
   </head>
 
   <body>
     <header>
       <div class="container">
         <img id="logo" src="./Assets/images/image_1207_todo_01.png" alt="">
-        <button id="loginbutton" onclick="  window.location = './login.html';">LOGIN </button>
+        <button id="loginbutton" onclick="  window.location = './Assets/htmlPages/login.html';">LOGIN </button>
         
       
       </div>
@@ -45,7 +46,7 @@
                  <input type="Password" id="pwd1" placeholder="Password" required >
                  <input type="Password" id="pwd2" placeholder="Password"  onfocusout="validatepassword()"  required>
                 <h5 id="msg" style="color:red"></h5>
-                 <input id="submit" type="submit" onclick="registeruser(event)" value="REGISTER"  >
+                 <input id="submit" type="submit" onclick="registerUser(event)" value="REGISTER"  >
             </ul>
         </form>
       </div>

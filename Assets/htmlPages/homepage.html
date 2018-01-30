@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./Assets/css/normalize.css">
-    <link rel="stylesheet" href="./Assets/css/reset.css">
-    <link rel="stylesheet" href="./Assets/css/main.css">
-    <link rel="stylesheet" href="./Assets/css/home.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/home.css">
     <title>Welcome</title>
-    <script src="./javascript/homepage.js"> </script>
+    <script src="../../javascript/ToDoModule.js"> </script>
+    <script src="../../javascript/storageModule.js"></script>
   </head>
 
   <body onload="loadhomepage()">
@@ -18,7 +19,7 @@
     <header>
       <div class="container">
         <img id="logo" src="./Assets/images/image_1207_todo_01.png" alt="">
-        <button id="viewpro" onclick="  window.location = './Index.html';"> Logout</button> 
+        <button id="viewpro" onclick="  window.location = '../../Index.html';"> Logout</button> 
         <button id="viewpro" onclick="  window.location = './profile.html';"> view profile </button> 
     
        
@@ -30,6 +31,7 @@
           <div id="buttons">
      <button id="additem" onclick="additem()">+Add New Item</button>
      <button id="Delitem" onclick="Deleteitems()">-Delete selected items</button>
+   
     </div>
      <table id="customers" >
         <tr id="todo_header">
