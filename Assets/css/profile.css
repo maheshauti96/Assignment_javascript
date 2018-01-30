@@ -2,6 +2,7 @@ main .profile-container{
     width:500px;
     margin:0 auto;    
     margin-top:60px;
+
 }
 p{
     font-size:40px;
@@ -11,14 +12,18 @@ p{
 main div label{
     width: 150px;
     display:inline-block;
+    margin:10px;
+}
+input{
+    margin:10px;
 }
 button{
-    margin-top:10px;
+   
     float: left;
     margin-left:20px;
    background-color:#00264d;
    color:white;
-    height: 40px;
+    height: 50px;
     width:auto;
     border-radius:10px;
 }
