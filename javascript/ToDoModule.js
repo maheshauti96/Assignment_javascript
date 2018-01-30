@@ -95,8 +95,12 @@ function Deleteitems() {
     for (i = 0; i < todolist.length; i++) {
         var arr = todolist[i];
         if (document.getElementById("check" + i).checked == true) {
+
             todolist.splice(i, 1);
-            i = -1;
+                     
+                       i=-1;
+
+            
         }
     }
     setArray(allEntries);
