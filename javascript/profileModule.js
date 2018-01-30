@@ -32,8 +32,7 @@ function makeEditable() {
     document.getElementById("PR_GENDER").readOnly = false;
     document.getElementById("PR_ADDRESS").readOnly = false;
     document.getElementById("PR_IMAGE").readOnly = false;
-
-
+    window.alert("you can edit now");
     // var para = document.createElement("input");
     // para.setAttribute("type", "file");
     // para.setAttribute("style", "display: block;");

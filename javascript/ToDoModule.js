@@ -19,14 +19,14 @@ function loadhomepage() {
         node.setAttribute("id", i);
         node.setAttribute("style", "text-decoration: none;");
         oldrow.appendChild(node);
-        document.getElementById(i).innerHTML = " <td>" + (i + 1) + ". <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=makestrikethrough(" + i + ")> " + "</td>" +
+        document.getElementById(i).innerHTML = " <td>" + (i + 1) + ". <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
             "<td>" + title + "</td>" +
             "<td>" + category + "</td>" +
             "<td>" + duedate + "</td>" +
             "<td>" + reminder + "</td>" +
             "<td>" + reminderdate + "</td>" +
             "<td>" + visibility + "</td>" +
-            "<td>" + "<button id='changestatus" + i + "' onclick='changestatus(" + i + ")'>" + status + "</button>" + "</td>";
+            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + status + "</button>" + "</td>";
 
     }
     if (todolist.length == 0) {
@@ -43,6 +43,14 @@ function loadhomepage() {
 
 }
 
+// function checkstate(i) {
+//     username = getUser();
+//     var allEntries = getArray();
+//     var x = search(username, allEntries);
+//      allEntries[x].todo[i].checkstatus="checked";
+
+
+// }
 function additem() {
     window.location = "./newItem.html";
 }
@@ -93,12 +101,19 @@ function Deleteitems() {
     var x = search(username, allEntries);
     var todolist = allEntries[x].todo;
     for (i = 0; i < todolist.length; i++) {
-        var arr = todolist[i];
-        if (document.getElementById("check" + i).checked == true) {
 
-            todolist.splice(i, 1);
+        if (document.getElementById("check" + i).checked == true) {
+          //  console.log('--->',todolist);
+          todolist.splice(i, 1);
+          //   console.log('--->',todolist);
+          // // for(j=i;j<todolist.length; j++){
+            //  if(document.getElementById("check" + (i+1)).checked == true)
+            //     document.getElementById("check" + i).checked == true
+            // else
+            //     document.getElementById("check" + i).checked == false;
+            // }
                      
-                       i=-1;
+                        i=-1;
 
             
         }
@@ -118,6 +133,8 @@ function changestatus(i) {
     var arr = todolist[i];
     arr.status = "Done";
     document.getElementById("changestatus" + i).innerHTML = "Done";
+
+  
     setArray(allEntries);
 
 

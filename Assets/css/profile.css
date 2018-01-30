@@ -19,6 +19,9 @@ main div label{
 }
 input{
     margin:10px;
+    background-color: #99d6ff;
+    border-style: none;
+    
 }
 button{
    
