@@ -4,12 +4,9 @@ document.getElementById("username").innerHTML=username;
 var allEntries = JSON.parse(localStorage.getItem('allEntries'));
 var x=search(username,allEntries);
 var todolist=allEntries[x].todo;
-// window.alert(todolist[0]);
-// var arr=JSON.parse(todolist);
-// window.alert(todolist[1]);
 for(i=0;i<todolist.length;i++)
 {   var arr=todolist[i];
-    // window.alert(arr);
+  
    var title=arr.title;
     var duedate=arr.duedate;
     var category=arr.category;
@@ -22,9 +19,6 @@ for(i=0;i<todolist.length;i++)
     node.setAttribute("id", i);
     node.setAttribute("style", "text-decoration: none;");
     oldrow.appendChild(node);
-    // 
-    //  var rowstyle=document.getElementById(i).style.textDecoration;
-    //   window.alert(document.getElementById(i).style.textDecoration);
     document.getElementById(i).innerHTML=" <td>"+(i+1)+". <input type='checkbox' id=check"+i+" style='height:20px;width:20px' onchange=makestrikethrough("+i+")> "+"</td>"+
                                                 "<td>"+title+"</td>"+
                                               "<td>"+category+"</td>"+
@@ -128,3 +122,4 @@ function addreminder(){
         localStorage.setItem("allEntries", JSON.stringify(allEntries));
 
     }
+    
