@@ -95,34 +95,38 @@ function addreminder() {
 }
 
 function Deleteitems() {
-
+ 
     username = getUser();
     var allEntries = getArray();
     var x = search(username, allEntries);
     var todolist = allEntries[x].todo;
+    var list=[];
+    
     for (i = 0; i < todolist.length; i++) {
-
         if (document.getElementById("check" + i).checked == true) {
-          //  console.log('--->',todolist);
-          todolist.splice(i, 1);
-          //   console.log('--->',todolist);
-          // // for(j=i;j<todolist.length; j++){
-            //  if(document.getElementById("check" + (i+1)).checked == true)
-            //     document.getElementById("check" + i).checked == true
-            // else
-            //     document.getElementById("check" + i).checked == false;
-            // }
-                     
-                        i=-1;
-
-            
+          list.push(true);
         }
+        else
+            list.push(false);
     }
+     
+     for (i = 0; i < todolist.length; i++) {
+
+         if(list[i]===true){
+             todolist.splice(i, 1);
+             list.splice(i, 1);
+              i=-1;
+         }
+      }
+
+
+
     setArray(allEntries);
     location.reload();
 
 
 }
+
 
 function changestatus(i) {
 
