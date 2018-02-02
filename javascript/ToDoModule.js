@@ -1,33 +1,32 @@
 function loadhomepage() {
     username = localStorage.getItem('username');
     document.getElementById("username").innerHTML = username;
+   loadlist();
+}
+
+function additem() {
+    window.location = "./newItem.html";
+}
+
+function loadlist(){
     var allEntries = getArray();
     var x = search(username, allEntries);
     var todolist = allEntries[x].todo;
     for (i = 0; i < todolist.length; i++) {
         var arr = todolist[i];
-
-        var title = arr.title;
-        var duedate = arr.duedate;
-        var category = arr.category;
-        var reminder = arr.reminder;
-        var reminderdate = arr.reminderdate;
-        var visibility = arr.visibility;
-        var status = arr.status;
         var oldrow = document.getElementById("customers"); //parent
         var node = document.createElement("tr");
         node.setAttribute("id", i);
         node.setAttribute("style", "text-decoration: none;");
         oldrow.appendChild(node);
         document.getElementById(i).innerHTML = " <td>" + (i + 1) + ". <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
-            "<td>" + title + "</td>" +
-            "<td>" + category + "</td>" +
-            "<td>" + duedate + "</td>" +
-            "<td>" + reminder + "</td>" +
-            "<td>" + reminderdate + "</td>" +
-            "<td>" + visibility + "</td>" +
-            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + status + "</button>" + "</td>";
-
+            "<td>" + arr.title + "</td>" +
+            "<td>" + arr.category + "</td>" +
+            "<td>" + arr.duedate + "</td>" +
+            "<td>" + arr.reminder + "</td>" +
+            "<td>" + arr.reminderdate + "</td>" +
+            "<td>" + arr.visibility + "</td>" +
+            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
     }
     if (todolist.length == 0) {
         var oldrow = document.getElementById("customers"); //parent
@@ -39,20 +38,6 @@ function loadhomepage() {
         oldrow.appendChild(node);
         document.getElementById("-1").innerHTML = "no contents to show";
     }
-
-
-}
-
-// function checkstate(i) {
-//     username = getUser();
-//     var allEntries = getArray();
-//     var x = search(username, allEntries);
-//      allEntries[x].todo[i].checkstatus="checked";
-
-
-// }
-function additem() {
-    window.location = "./newItem.html";
 }
 
 function saveitem() {
@@ -141,5 +126,122 @@ function changestatus(i) {
   
     setArray(allEntries);
 
+
+}
+function addsearchlist(){
+    document.getElementById('searchtype').style.display="inline";
+}
+function acceptip() {
+   
+    if(document.getElementById('searchtype').value=='DateR')
+         {
+                 document.getElementById('searchbydaterange').style.display="block";
+                  document.getElementById('searchCat').style.display="none";
+         }
+         if(document.getElementById('searchtype').value=='Cat')
+         {
+            document.getElementById('searchbydaterange').style.display="none";
+            document.getElementById('searchCat').style.display="block";
+         }
+
+}
+
+function searchbydateR(){
+
+         var startDate=document.getElementById('startDate').value;
+                 var EndDate=document.getElementById('endDate').value;
+
+                    
+
+                      var oldrow = document.getElementById("customers"); //parent
+                      for(i=oldrow.childElementCount;i>1;i--)
+                oldrow.removeChild(oldrow.childNodes[i]);
+    
+                     var allEntries = getArray();
+                var x = search(username, allEntries);
+                var todolist = allEntries[x].todo;
+                for (i = 0; i < todolist.length; i++) {
+                var arr = todolist[i];
+                if(arr.duedate>=startDate&&arr.duedate<=EndDate)
+                {
+                var oldrow = document.getElementById("customers"); //parent
+                var node = document.createElement("tr");
+                node.setAttribute("id", i);
+                node.setAttribute("style", "text-decoration: none;");
+                oldrow.appendChild(node);
+                document.getElementById(i).innerHTML = " <td>" + (i + 1) + ". <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+            "<td>" + arr.title + "</td>" +
+            "<td>" + arr.category + "</td>" +
+            "<td>" + arr.duedate + "</td>" +
+            "<td>" + arr.reminder + "</td>" +
+            "<td>" + arr.reminderdate + "</td>" +
+            "<td>" + arr.visibility + "</td>" +
+            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
+            }
+    }
+
+
+}
+
+function searchbyCat(){
+     var selectedstatus=document.getElementById('catlist').value;
+     alert(selectedstatus);
+               var oldrow = document.getElementById("customers"); //parent
+                      for(i=oldrow.childElementCount;i>1;i--)
+                oldrow.removeChild(oldrow.childNodes[i]);
+     if(selectedstatus=='itsdone')
+     {
+         var allEntries = getArray();
+                var x = search(username, allEntries);
+                var todolist = allEntries[x].todo;
+                for (i = 0; i < todolist.length; i++) {
+                var arr = todolist[i];
+                 if(arr.status=='Done')
+                {
+                          var oldrow = document.getElementById("customers"); //parent
+                var node = document.createElement("tr");
+                node.setAttribute("id", i);
+                node.setAttribute("style", "text-decoration: none;");
+                oldrow.appendChild(node);
+                document.getElementById(i).innerHTML = " <td>" + (i + 1) + ". <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+            "<td>" + arr.title + "</td>" +
+            "<td>" + arr.category + "</td>" +
+            "<td>" + arr.duedate + "</td>" +
+            "<td>" + arr.reminder + "</td>" +
+            "<td>" + arr.reminderdate + "</td>" +
+            "<td>" + arr.visibility + "</td>" +
+            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
+           
+
+                }}
+
+     }
+    if(selectedstatus=='itsdoing')
+    {
+ var allEntries = getArray();
+                var x = search(username, allEntries);
+                var todolist = allEntries[x].todo;
+                for (i = 0; i < todolist.length; i++) {
+                var arr = todolist[i];
+                 if(arr.status=='doing')
+                {
+                          var oldrow = document.getElementById("customers"); //parent
+                var node = document.createElement("tr");
+                node.setAttribute("id", i);
+                node.setAttribute("style", "text-decoration: none;");
+                oldrow.appendChild(node);
+                document.getElementById(i).innerHTML = " <td>" + (i + 1) + ". <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+            "<td>" + arr.title + "</td>" +
+            "<td>" + arr.category + "</td>" +
+            "<td>" + arr.duedate + "</td>" +
+            "<td>" + arr.reminder + "</td>" +
+            "<td>" + arr.reminderdate + "</td>" +
+            "<td>" + arr.visibility + "</td>" +
+            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
+           
+
+                }}
+    }
+    
 
 }

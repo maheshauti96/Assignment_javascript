@@ -31,13 +31,36 @@
           <div id="buttons">
      <button id="additem" onclick="additem()">+Add New Item</button>
      <button id="Delitem" onclick="Deleteitems()">-Delete selected items</button>
+     <button id="searchbtn" onclick="addsearchlist()">Search</button>
+       <select name="searchtype" id="searchtype" onchange="acceptip()"  style="display: none;">
+         <option value="none" selected="selected">--Select--</option>
+              <option value="DateR">Date Range</option>
+              <option value="Cat">Categories</option>
+              <option value="donestatus">Is Done</option>
+      </select>  
+      <div id="searchbydaterange" style="display: none;">
+      From <input type=date id='startDate'>To<input type=date id='endDate'> 
+        <button id="searchbydateR" onclick="searchbydateR();">Search</button>
+        <button id="refresh" onclick="loadhomepage();">Refresh</button>
+      </div>
+        <div id="searchCat" style="display: none;">
+          <select name='catlist' id='catlist'>
+             <option value="none" selected="selected">--Select--</option>
+            <option value='itsdone'> Done </option>
+            <option value='itsdoing'> Doing </option>
+          </select>
+             <button id="searchbyCat" onclick="searchbyCat();">Search</button>
+        <button id="refresh" onclick="loadhomepage();">Refresh</button>
+        </div>
    
     </div>
+
+    
      <table id="customers" >
         <tr id="todo_header">
             <th> Sr No </th>
           <th id="title">title</th>
-          <th id="catogory">catogory</th>
+          <th id="catogory">category</th>
           <th id="duedate">duedate</th>
           <th id="reminder">reminder</th>
           <th id="reminder">reminder_date</th>

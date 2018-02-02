@@ -38,9 +38,9 @@ table{
     padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+/*#customers tr:nth-child(even){background-color: #f2f2f2;}*/
 
-#customers tr:hover {background-color: #ddd;}
+/*#customers tr:hover {background-color: #ddd;}*/
 
 #customers th {
     padding-top: 12px;
@@ -70,4 +70,12 @@ button{
 }
 .statusbtn{
     background-color: #3495ef;
+}
+#searchbydaterange{
+   text-align: center;  
+   margin-bottom: 20px;
+}
+#searchCat{
+    text-align: center;
+     margin-bottom: 20px;
 }
