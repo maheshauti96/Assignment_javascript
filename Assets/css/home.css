@@ -49,14 +49,46 @@ table{
     background-color: #00264d;
     color: white;
     width: auto;
+      border-radius:5px;
+      background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+
+ 
+  color: #ffffff;
+  font-size: 20px;
+ 
+  text-decoration: none;
 }
 button{
     margin-left:20px; 
     border-radius:10px;
     color:white;
-   background-color:#00264d;
-    height: auto;
+   height: 40px;
     width:auto;
+    border-radius:10px;
+     height: 40px;
+    width:auto;
+     border-radius:5px;
+      background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+
+ 
+  color: #ffffff;
+  font-size: 20px;
+ 
+  text-decoration: none;
 }
 #buttons{
     margin-left: 5%;
