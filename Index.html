@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./Assets/css/normalize.css">
     <link rel="stylesheet" href="./Assets/css/reset.css">
     <link rel="stylesheet" href="./Assets/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
     <title>todo</title>
     <script src="./javascript/registrationModule.js"></script>
     <script src="./javascript/ValidationModule.js"></script>
@@ -18,7 +19,7 @@
     <header>
       <div class="container">
         <img id="logo" src="./Assets/images/image_1207_todo_01.png" alt="">
-        <button id="loginbutton" onclick="  window.location = './Assets/htmlPages/login.html';">LOGIN </button>
+        <button id="loginbutton" onclick="  window.location = './Assets/htmlPages/login.html';">Login </button>
         
       
       </div>
@@ -27,15 +28,22 @@
       <div id="main-container">
           <h2>New to To-Do? Register Here</h2>
         <form class="myform" action=""  >
+              <div id='emailerror' style='display: none;color:red'> </div> 
              <label for="Email" id="emaillable">Email </label>  <br>
-             <input  type="text" name="email" class="required-field" id="emailAddr" onfocusout="validateemail(this)" 
-             class="required-field" required > <span> </span>
+             <input  type="text" name="email" class="required-field" id="emailAddr"  
+             class="required-field" required > 
+              <div id='fnameerror' style='display: none;color:red'></div> 
               <label for="firstName" id="firstname">FirstName </label>  
-             <input type="text" class="required-field" name="firstName" id="fname"  onfocusout="validatefname(this)"  required>    
+             <input type="text" class="required-field" name="firstName" id="fname"  "  required>    
+              
+          <div id='lnameerror' style='display: none;color:red'></div>  
                <label for="LastName" id="lastname">LastName </label>
-              <input type="text" class="required-field" name="LastName" id="lname"  onfocusout="validatelname(this)"required>  <br>    
+              <input type="text" class="required-field" name="LastName" id="lname" required>  <br>    
+              
+             <div id='gendererror' style='display: none;color:red'>  </div> 
                  <label for="Gender">Gender </label>  
               <select name="Gender" id="gender" :required>
+                 <option value="none" selected="selected">--Select--</option>
               <option value="M">Male</option>
               <option value="F">Female</option>
             </select>    
@@ -44,10 +52,11 @@
 
                  <label for="ProfileImage" style="display:block">ProfileImage </label>   
                  <input name="profileimg" type="file" id="img" acceptthis="image/*"  value=profilepic required>
+                    <div id='pwderror' style='display: none;color:red'></div> 
                  <input type="Password" id="pwd1" placeholder="Password" required >
-                 <input type="Password" id="pwd2" placeholder="Password"  onfocusout="validatepassword()"  required>
+                 <input type="Password" id="pwd2" placeholder="Password"   required>
                 <h5 id="msg" style="color:red"></h5>
-                 <input id="submit" type="submit" onclick="registerUser(event)" value="REGISTER"  >
+                 <button id="submit1" type="button" onclick=" return registerUser(event)" value=""  > REGISTER</button>
             </ul>
         </form>
       </div>

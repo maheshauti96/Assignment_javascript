@@ -26,11 +26,13 @@
     <main>
       <div id="main-container">
         <form  action="">
+           <div id='emailerror' style='display: none;color:red'> </div> 
              <label for="Email" id="emaillable">Email </label>  <br>
-             <input  type="text" name="email" id="emailAddr" onfocusout="validateemail(this)" required > <span>
+             <input  type="text" name="email" id="emailAddr" required > 
              <label for="password">Password</label>
              <input type="Password" name="" id="pwd">
-            <input type="submit" id="submit" onclick="login(event);">
+             <div id='loginerror' style='display: none;color:red'> </div> 
+            <button type="submit" id="submit" onclick="login(event);">Login </button>
         </form>
       </div>
       <div>

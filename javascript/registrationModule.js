@@ -1,5 +1,5 @@
 function registerUser(event) {
-    event.preventDefault();
+   // event.preventDefault();
     if (validate()) {
         var newdata = getData();
         window.alert("user " + newdata.Fname + " " + newdata.Lname + " registered successfully");
@@ -10,7 +10,7 @@ function registerUser(event) {
         window.location = "./Assets/htmlPages/homepage.html";
         return true;
     } else {
-        window.alert("form is incomplete");
+       
         return false;
     }
 }
