@@ -17,12 +17,7 @@ main div label{
     display:inline-block;
     margin:10px;
 }
-input{
-    margin:10px;
-    background-color: #99d6ff;
-    border-style: none;
-    
-}
+
 button{
    
     float: left;
@@ -32,4 +27,7 @@ button{
     height: 50px;
     width:auto;
     border-radius:5px;
+}
+input{
+    background-color:  black;
 }
