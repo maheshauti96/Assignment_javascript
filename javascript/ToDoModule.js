@@ -1,5 +1,10 @@
 function loadhomepage() {
     username = localStorage.getItem('username');
+    if(username=='null')
+    {
+        window.alert('sorry session is expired!!');
+        window.history.forward();
+    }
     document.getElementById("username").innerHTML = username;
    loadlist();
 }
@@ -19,7 +24,8 @@ function loadlist(){
         node.setAttribute("id", i);
         node.setAttribute("style", "text-decoration: none;");
         oldrow.appendChild(node);
-        document.getElementById(i).innerHTML = " <td>" + (i + 1) + ". <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+        document.getElementById(i).innerHTML = " <td>" +  " <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+             "<td>" + (i + 1) + "</td>" +
             "<td>" + arr.title + "</td>" +
             "<td>" + arr.category + "</td>" +
             "<td>" + arr.duedate + "</td>" +
@@ -136,12 +142,21 @@ function acceptip() {
     if(document.getElementById('searchtype').value=='DateR')
          {
                  document.getElementById('searchbydaterange').style.display="block";
+                     document.getElementById('searchIsdone').style.display="none";
                   document.getElementById('searchCat').style.display="none";
          }
          if(document.getElementById('searchtype').value=='Cat')
          {
             document.getElementById('searchbydaterange').style.display="none";
             document.getElementById('searchCat').style.display="block";
+            document.getElementById('searchIsdone').style.display="none";
+            
+         }
+          if(document.getElementById('searchtype').value=='donestatus')
+         {
+            document.getElementById('searchbydaterange').style.display="none";
+            document.getElementById('searchIsdone').style.display="block";
+            document.getElementById('searchCat').style.display="none";
          }
 
 }
@@ -169,7 +184,8 @@ function searchbydateR(){
                 node.setAttribute("id", i);
                 node.setAttribute("style", "text-decoration: none;");
                 oldrow.appendChild(node);
-                document.getElementById(i).innerHTML = " <td>" + (i + 1) + ". <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+                  document.getElementById(i).innerHTML = " <td>" +  " <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+             "<td>" + (i + 1) + "</td>" +
             "<td>" + arr.title + "</td>" +
             "<td>" + arr.category + "</td>" +
             "<td>" + arr.duedate + "</td>" +
@@ -183,12 +199,10 @@ function searchbydateR(){
 
 }
 
-function searchbyCat(){
-     var selectedstatus=document.getElementById('catlist').value;
-     alert(selectedstatus);
-               var oldrow = document.getElementById("customers"); //parent
-                      for(i=oldrow.childElementCount;i>1;i--)
-                oldrow.removeChild(oldrow.childNodes[i]);
+function searchByDoneStatus(){
+     var selectedstatus=document.getElementById('Islist').value;
+    
+              clearAllRows();
      if(selectedstatus=='itsdone')
      {
          var allEntries = getArray();
@@ -203,7 +217,8 @@ function searchbyCat(){
                 node.setAttribute("id", i);
                 node.setAttribute("style", "text-decoration: none;");
                 oldrow.appendChild(node);
-                document.getElementById(i).innerHTML = " <td>" + (i + 1) + ". <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+                  document.getElementById(i).innerHTML = " <td>" +  " <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+             "<td>" + (i + 1) + "</td>" +
             "<td>" + arr.title + "</td>" +
             "<td>" + arr.category + "</td>" +
             "<td>" + arr.duedate + "</td>" +
@@ -218,7 +233,7 @@ function searchbyCat(){
      }
     if(selectedstatus=='itsdoing')
     {
- var allEntries = getArray();
+                 var allEntries = getArray();
                 var x = search(username, allEntries);
                 var todolist = allEntries[x].todo;
                 for (i = 0; i < todolist.length; i++) {
@@ -230,7 +245,8 @@ function searchbyCat(){
                 node.setAttribute("id", i);
                 node.setAttribute("style", "text-decoration: none;");
                 oldrow.appendChild(node);
-                document.getElementById(i).innerHTML = " <td>" + (i + 1) + ". <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+                  document.getElementById(i).innerHTML = " <td>" +  " <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+             "<td>" + (i + 1) + "</td>" +
             "<td>" + arr.title + "</td>" +
             "<td>" + arr.category + "</td>" +
             "<td>" + arr.duedate + "</td>" +
@@ -243,5 +259,109 @@ function searchbyCat(){
                 }}
     }
     
+
+}
+function logout(){
+    setUser(null);
+      window.location = '../../Index.html';
+}
+function clearAllRows(){
+    var oldrow = document.getElementById("customers"); //parent
+                      for(i=oldrow.childElementCount;i>1;i--)
+                oldrow.removeChild(oldrow.childNodes[i]);
+}
+
+function searchbyCat() {
+     var selectedstatus=document.getElementById('catlist').value;
+    
+               clearAllRows();
+
+               if(selectedstatus=='office')
+    {                  
+                 var allEntries = getArray();
+                var x = search(username, allEntries);
+                var todolist = allEntries[x].todo;
+                for (i = 0; i < todolist.length; i++) {
+                var arr = todolist[i];
+                 if(arr.category=='office')
+                {   
+                          var oldrow = document.getElementById("customers"); //parent
+                var node = document.createElement("tr");
+                node.setAttribute("id", i);
+                node.setAttribute("style", "text-decoration: none;");
+                oldrow.appendChild(node);
+                document.getElementById(i).innerHTML = " <td>" +  " <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+             "<td>" + (i + 1) + "</td>" +
+            "<td>" + arr.title + "</td>" +
+            "<td>" + arr.category + "</td>" +
+            "<td>" + arr.duedate + "</td>" +
+            "<td>" + arr.reminder + "</td>" +
+            "<td>" + arr.reminderdate + "</td>" +
+            "<td>" + arr.visibility + "</td>" +
+            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
+           
+
+                }}
+    }
+
+    if(selectedstatus=='Home')
+    {                  
+                 var allEntries = getArray();
+                var x = search(username, allEntries);
+                var todolist = allEntries[x].todo;
+                for (i = 0; i < todolist.length; i++) {
+                var arr = todolist[i];
+                 if(arr.category=='home')
+                {   
+                          var oldrow = document.getElementById("customers"); //parent
+                var node = document.createElement("tr");
+                node.setAttribute("id", i);
+                node.setAttribute("style", "text-decoration: none;");
+                oldrow.appendChild(node);
+                  document.getElementById(i).innerHTML = " <td>" +  " <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+             "<td>" + (i + 1) + "</td>" +
+            "<td>" + arr.title + "</td>" +
+            "<td>" + arr.category + "</td>" +
+            "<td>" + arr.duedate + "</td>" +
+            "<td>" + arr.reminder + "</td>" +
+            "<td>" + arr.reminderdate + "</td>" +
+            "<td>" + arr.visibility + "</td>" +
+            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
+           
+
+                }}
+    }
+
+      if(selectedstatus=='Personal')
+    {                  
+                 var allEntries = getArray();
+                var x = search(username, allEntries);
+                var todolist = allEntries[x].todo;
+                for (i = 0; i < todolist.length; i++) {
+                var arr = todolist[i];
+                 if(arr.category=='personal')
+                {   
+                          var oldrow = document.getElementById("customers"); //parent
+                var node = document.createElement("tr");
+                node.setAttribute("id", i);
+                node.setAttribute("style", "text-decoration: none;");
+                oldrow.appendChild(node);
+                  document.getElementById(i).innerHTML = " <td>" +  " <input type='checkbox' id=check" + i + " style='height:20px;width:20px' onchange=checkstate(" + i + ")> " + "</td>" +
+             "<td>" + (i + 1) + "</td>" +
+            "<td>" + arr.title + "</td>" +
+            "<td>" + arr.category + "</td>" +
+            "<td>" + arr.duedate + "</td>" +
+            "<td>" + arr.reminder + "</td>" +
+            "<td>" + arr.reminderdate + "</td>" +
+            "<td>" + arr.visibility + "</td>" +
+            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
+           
+
+                }}
+    }
+    
+
+
+
 
 }

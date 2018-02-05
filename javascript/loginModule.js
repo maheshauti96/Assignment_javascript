@@ -14,11 +14,11 @@ function login(event) {
     var x = search(emailaddr, pwd, allEntries);
     if (x != null) {
         window.alert("welcome");
-
+        setUser(emailaddr);
         window.location = './homepage.html';
 
     } else
-    {
+    {   
         document.getElementById('loginerror').style.display="block";
         document.getElementById('loginerror').innerHTML="invalid Credentials";
         return false;

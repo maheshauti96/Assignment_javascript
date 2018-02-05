@@ -1,21 +1,38 @@
 main .profile-container{
-    width:500px;
+    width:350px;
     margin:0 auto;    
     margin-top:30px;
      padding: 30px;
     padding-bottom: 60px;
-     border: 2px dashed #046ca3;
+   
    border-radius:10px;
+
+    background-color:  rgba(0, 0, 0, 0.2);
+  width:400px;
+  height: auto;
+ 
+   margin-bottom:100px;
+ border-radius:5px;
+}
+
+h1{
+
+ font-size: 50px;
+ font-family: 'Rammetto One', cursive;   
+ text-shadow: 2px 2px #00264d;
 }
 p{
     font-size:40px;
     text-align:center;
     margin:30px;
 }
-main div label{
+label{
     width: 150px;
-    display:inline-block;
+    display:inline;
     margin:10px;
+}
+main div input{
+    display:block;
 }
 
 button{
@@ -28,6 +45,11 @@ button{
     width:auto;
     border-radius:5px;
 }
+
 input{
-    background-color:  black;
+
+     width:330px;
+    height: 35px;;
+    margin-bottom:20px;
+    border-radius:10px;
 }

@@ -7,6 +7,7 @@ main .container #additem{
 }
 main .container #newItemForm{
     line-height: 30px;
+     background-color:  rgba(0, 0, 0, 0.2);
    width: 700px;
    margin: 0 auto;
    margin-top:60px;
@@ -97,8 +98,7 @@ button{
 #newItemForm{
     padding: 40px;
     padding-bottom: 60px;
-     border: 2px dashed #046ca3;
-   border-radius:10px;
+    
 }
 .statusbtn{
     background-color: #3495ef;
@@ -107,7 +107,11 @@ button{
    text-align: center;  
    margin-bottom: 20px;
 }
-#searchCat{
+#searchCat,#searchIsdone{
     text-align: center;
      margin-bottom: 20px;
+}
+#customers td{
+  background-color:  rgba(0, 0, 0, 0.1);
+
 }

@@ -20,8 +20,8 @@
     <header>
       <div class="container">
         <img id="logo" src="../images/image_1207_todo_01.png" alt="">
-        <button id="viewpro" onclick="  window.location = '../../Index.html';"> Logout</button> 
-        <button id="viewpro" onclick="  window.location = './profile.html';"> view profile </button> 
+        <button id="viewpro" onclick="logout();"> Logout</button> 
+        <button id="viewpro" onclick="  window.location = './profile.html';"> View profile </button> 
     
        
       </div>
@@ -30,8 +30,8 @@
       <div class="container">
           <p id="username"></p>
           <div id="buttons">
-     <button id="additem" onclick="additem()">+Add New Item</button>
-     <button id="Delitem" onclick="Deleteitems()">-Delete selected items</button>
+     <button id="additem" onclick="additem()">+ Add New Item</button>
+     <button id="Delitem" onclick="Deleteitems()">- Delete selected items</button>
      <button id="searchbtn" onclick="addsearchlist()">Search</button>
        <select name="searchtype" id="searchtype" onchange="acceptip()"  style="display: none;">
          <option value="none" selected="selected">--Select--</option>
@@ -47,10 +47,22 @@
         <div id="searchCat" style="display: none;">
           <select name='catlist' id='catlist'>
              <option value="none" selected="selected">--Select--</option>
+            <option value='office'> Office </option>
+            <option value='Home'> Home </option>
+             <option value='Personal'> Personal </option>
+
+          </select>
+             <button id="searchbyCat" onclick="searchbyCat();">Search</button>
+        <button id="refresh" onclick="loadhomepage();">Refresh</button>
+        </div>
+
+         <div id="searchIsdone" style="display: none;">
+          <select name='Islist' id='Islist'>
+             <option value="none" selected="selected">--Select--</option>
             <option value='itsdone'> Done </option>
             <option value='itsdoing'> Doing </option>
           </select>
-             <button id="searchbyCat" onclick="searchbyCat();">Search</button>
+             <button id="searchbyCat" onclick="searchByDoneStatus();">Search</button>
         <button id="refresh" onclick="loadhomepage();">Refresh</button>
         </div>
    
@@ -59,13 +71,14 @@
     
      <table id="customers" >
         <tr id="todo_header">
+          <th>  </th>
             <th> Sr No </th>
-          <th id="title">title</th>
-          <th id="catogory">category</th>
-          <th id="duedate">duedate</th>
-          <th id="reminder">reminder</th>
-          <th id="reminder">reminder_date</th>
-          <th id="visibility">visibility</th>
+          <th id="title">Title</th>
+          <th id="catogory">Category</th>
+          <th id="duedate">DueDate</th>
+          <th id="reminder">Reminder</th>
+          <th id="reminder">Reminder Date</th>
+          <th id="visibility">Visibility</th>
           <th id="status">Current Status</th>
           
 
