@@ -32,7 +32,7 @@ function loadlist(){
             "<td>" + arr.reminder + "</td>" +
             "<td>" + arr.reminderdate + "</td>" +
             "<td>" + arr.visibility + "</td>" +
-            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
+            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'    >" +getstatusop(i)+ arr.status + "</button>" + "</td>";
     }
     if (todolist.length == 0) {
         var oldrow = document.getElementById("customers"); //parent
@@ -71,7 +71,7 @@ function getitem(title, duedate, category, reminder, reminderdate, visibility, i
     this.reminder = reminder;
     this.reminderdate = reminderdate;
     this.visibility = visibility;
-    this.status = "doing";
+    this.status = "pending";
 }
 
 function search(username, allEntries) {
@@ -127,11 +127,27 @@ function changestatus(i) {
     var todolist = allEntries[x].todo;
     var arr = todolist[i];
     arr.status = "Done";
-    document.getElementById("changestatus" + i).innerHTML = "Done";
+    document.getElementById("changestatus" + i).innerHTML = "<i class='large material-icons'>check</i>Done";
 
   
     setArray(allEntries);
 
+
+}
+
+function getstatusop(i){
+  
+     var allEntries = getArray();
+      var x = search(username, allEntries);
+      var todolist = allEntries[x].todo;
+    
+        var arr = todolist[i];
+        // window.alert(arr.status);
+          if(arr.status=='Done')
+            return "<i class='large material-icons'>check</i>";
+          else
+            return " <i class='material-icons'>access_time</i>";
+      
 
 }
 function addsearchlist(){
@@ -192,8 +208,8 @@ function searchbydateR(){
             "<td>" + arr.reminder + "</td>" +
             "<td>" + arr.reminderdate + "</td>" +
             "<td>" + arr.visibility + "</td>" +
-            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
-            }
+                    "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'    >" +getstatusop(i)+ arr.status + "</button>" + "</td>";
+     }
     }
 
 
@@ -225,9 +241,8 @@ function searchByDoneStatus(){
             "<td>" + arr.reminder + "</td>" +
             "<td>" + arr.reminderdate + "</td>" +
             "<td>" + arr.visibility + "</td>" +
-            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
-           
-
+                     "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'    >" +getstatusop(i)+ arr.status + "</button>" + "</td>";
+   
                 }}
 
      }
@@ -238,7 +253,7 @@ function searchByDoneStatus(){
                 var todolist = allEntries[x].todo;
                 for (i = 0; i < todolist.length; i++) {
                 var arr = todolist[i];
-                 if(arr.status=='doing')
+                 if(arr.status=='pending')
                 {
                           var oldrow = document.getElementById("customers"); //parent
                 var node = document.createElement("tr");
@@ -253,8 +268,8 @@ function searchByDoneStatus(){
             "<td>" + arr.reminder + "</td>" +
             "<td>" + arr.reminderdate + "</td>" +
             "<td>" + arr.visibility + "</td>" +
-            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
-           
+                    "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'    >" +getstatusop(i)+ arr.status + "</button>" + "</td>";
+   
 
                 }}
     }
@@ -298,8 +313,8 @@ function searchbyCat() {
             "<td>" + arr.reminder + "</td>" +
             "<td>" + arr.reminderdate + "</td>" +
             "<td>" + arr.visibility + "</td>" +
-            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
-           
+                     "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'    >" +getstatusop(i)+ arr.status + "</button>" + "</td>";
+   
 
                 }}
     }
@@ -326,8 +341,8 @@ function searchbyCat() {
             "<td>" + arr.reminder + "</td>" +
             "<td>" + arr.reminderdate + "</td>" +
             "<td>" + arr.visibility + "</td>" +
-            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
-           
+                     "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'    >" +getstatusop(i)+ arr.status + "</button>" + "</td>";
+   
 
                 }}
     }
@@ -354,8 +369,8 @@ function searchbyCat() {
             "<td>" + arr.reminder + "</td>" +
             "<td>" + arr.reminderdate + "</td>" +
             "<td>" + arr.visibility + "</td>" +
-            "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'>" + arr.status + "</button>" + "</td>";
-           
+                    "<td>" + "<button id='changestatus" + i + "' class='statusbtn' onclick='changestatus(" + i + ")'    >" +getstatusop(i)+ arr.status + "</button>" + "</td>";
+   
 
                 }}
     }

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/home.css">
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <title>Welcome</title>
     <script src="../../javascript/ToDoModule.js"> </script>
     <script src="../../javascript/storageModule.js"></script>
@@ -21,7 +23,7 @@
       <div class="container">
         <img id="logo" src="../images/image_1207_todo_01.png" alt="">
         <button id="viewpro" onclick="logout();"> Logout</button> 
-        <button id="viewpro" onclick="  window.location = './profile.html';"> View profile </button> 
+        <button id="viewpro" onclick="  window.location = './profile.html';">  <i class="material-icons">face</i>Profile </button> 
     
        
       </div>
@@ -30,9 +32,10 @@
       <div class="container">
           <p id="username"></p>
           <div id="buttons">
-     <button id="additem" onclick="additem()">+ Add New Item</button>
-     <button id="Delitem" onclick="Deleteitems()">- Delete selected items</button>
-     <button id="searchbtn" onclick="addsearchlist()">Search</button>
+     <button class="ADS" onclick="additem() "   >  <i class="material-icons">add_box</i> ADD</button>
+     <button class="ADS" onclick="Deleteitems()" >  <i class="material-icons">delete</i>  Delete</button>
+     <button class="ADS" onclick="addsearchlist()"><i class="material-icons">find_in_page</i> Search
+     </button>
        <select name="searchtype" id="searchtype" onchange="acceptip()"  style="display: none;">
          <option value="none" selected="selected">--Select--</option>
               <option value="DateR">Date Range</option>
@@ -42,7 +45,7 @@
       <div id="searchbydaterange" style="display: none;">
       From <input type=date id='startDate'>To<input type=date id='endDate'> 
         <button id="searchbydateR" onclick="searchbydateR();">Search</button>
-        <button id="refresh" onclick="loadhomepage();">Refresh</button>
+        <button id="refresh" onclick="loadhomepage();">Clear</button>
       </div>
         <div id="searchCat" style="display: none;">
           <select name='catlist' id='catlist'>
@@ -52,18 +55,18 @@
              <option value='Personal'> Personal </option>
 
           </select>
-             <button id="searchbyCat" onclick="searchbyCat();">Search</button>
-        <button id="refresh" onclick="loadhomepage();">Refresh</button>
+             <button id="searchbyCat" onclick="searchbyCat();">  Search</button>
+        <button id="refresh" onclick="loadhomepage();">Clear</button>
         </div>
 
          <div id="searchIsdone" style="display: none;">
           <select name='Islist' id='Islist'>
              <option value="none" selected="selected">--Select--</option>
             <option value='itsdone'> Done </option>
-            <option value='itsdoing'> Doing </option>
+            <option value='itsdoing'> Pending </option>
           </select>
              <button id="searchbyCat" onclick="searchByDoneStatus();">Search</button>
-        <button id="refresh" onclick="loadhomepage();">Refresh</button>
+        <button id="refresh" onclick="loadhomepage();">Clear</button>
         </div>
    
     </div>
